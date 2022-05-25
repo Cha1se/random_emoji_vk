@@ -171,7 +171,7 @@ print_url=''
 info=False
 
 #меню
-settings = "y"
+settings=input("открыть отладочное меню?(y/n)")
 if settings=='y':
 	print('1. вы хотите обновить токены?')
 	print('2. вы хотите сбросить список таблицы?')
@@ -179,7 +179,7 @@ if settings=='y':
 	print("4. Выводить ссылку эмодзи статуса")
 	print("5. вывести служебную информацию?(не рекоментуется к включению)")
 	print('0. выход')
-	choise= 4
+	choise=input()
 if choise=='1':
 	update_tokens='1'
 elif choise=='2':
@@ -280,7 +280,7 @@ for i in range(0, len(app_ids)):
 
 
 
-if "y"=="y":
+if input("Мне проверить новые эмодзи?(если запуск впервые, то соглашайтесь) (y/n) ")=="y":
 	print("проверка на наличие новых эмодзи")
 	try:
 		c.execute('''DROP TABLE IF EXISTS 'Base';''')
@@ -313,7 +313,7 @@ try:
 except Exception as e:
 	print("ошибка вывода списка, скорее всего он не создан. текст ошибки:",e)
 
-refreshId(10)
+refreshId(input("Введите через какое количество времени будет изменяться эмодзи(сек): "))
 
 conn.commit()
 
